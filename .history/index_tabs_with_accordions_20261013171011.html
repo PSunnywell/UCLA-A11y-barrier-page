@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Accessibility Resources for UCLA">
+  <title>Accessibility Resources</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Classic attached tabs, styled to match the reference image. */
+    .requirements-tabs { max-width: 1100px; margin: 1.5rem auto 3rem; font-family: inherit; }
+    .requirements-tablist { display: flex; align-items: flex-end; flex-wrap: wrap; gap: 4px; padding: 0; border-bottom: 1px solid #aeb6bf; }
+    .requirements-tab { appearance: none; border: 1px solid #b5bac1; border-bottom: 0; border-radius: 6px 6px 0 0; background: #f1f2f4; color: #242424; font: inherit; font-weight: 600; font-size: 1rem; line-height: 1.3; padding: 12px 18px; margin: 0 0 -1px; cursor: pointer; }
+    .requirements-tab[aria-selected="true"] { background: #fff; color: #111; border-top: 4px solid #2774ae; padding-top: 9px; border-bottom: 1px solid #fff; position: relative; z-index: 1; }
+    .requirements-tab:hover:not([aria-selected="true"]) { background: #e5edf4; }
+    .requirements-tab:focus-visible { outline: 3px solid #005587; outline-offset: 2px; z-index: 2; }
+    .requirements-tabs > .requirements-panel { border: 1px solid #aeb6bf; border-top: 0; padding: 20px; background: #fff; }
+    /* Simple accordion rows inside each top-level tab. */
+    .requirements-accordion { border-bottom: 1px solid #c9d1d8; }
+    .requirements-accordion:first-child { border-top: 1px solid #c9d1d8; }
+    .requirements-accordion summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 17px 14px; font-weight: 600; color: #005587; background: #fff; }
+    .requirements-accordion summary::-webkit-details-marker { display: none; }
+    .requirements-accordion summary::after { content: "+"; font-size: 1.5rem; line-height: 1; color: #2774ae; }
+    .requirements-accordion[open] summary::after { content: "−"; }
+    .requirements-accordion summary:hover { background: #f3f8fc; }
+    .requirements-accordion summary:focus-visible { outline: 3px solid #005587; outline-offset: -3px; }
+    .requirements-accordion-content { padding: 0 14px 16px; }
+    .requirements-panel[hidden] { display: none; }
+    .requirements-panel p { line-height: 1.65; max-width: 72ch; margin: 0 0 .8rem; }
+    .requirements-panel h3 { color: #005587; margin: 0 0 .65rem; font-size: 1.2rem; }
+    @media (max-width: 600px) { .requirements-tab { padding: 10px 12px; font-size: .9rem; } .requirements-tab[aria-selected="true"] { padding-top: 7px; } .requirements-tabs > .requirements-panel { padding: 14px; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-brand" href="ucla.edu" aria-label="UCLA home">
+        <img class="site-brand-logo" src="images/logo_UCLA_blue_boxed.png" alt="UCLA">
+       
+      </a>
+      <nav class="primary-nav" aria-label="Primary navigation">
+
+        <ul>  
+          <li><a href="https://newsroom.ucla.edu/">Newsroom</a></li>
+          <li><a href="training.html">Training</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="site-search-row">
+      <search class="site-search" role="search">
+        <form action="search.html" method="get">
+          <label for="site-search-input">Search the site</label>
+          <input id="site-search-input" name="q" type="search" placeholder="Search the site" autocomplete="off">
+          <button type="submit">Search</button>
+        </form>
+      </search>
+    </div>
+  </header>
+
+
+  <!-- =======================================================
+       HERO
+       ======================================================= -->
+
+  <section class="hero" aria-labelledby="page-title">
+
+    <div class="hero-inner">
+
+            <h1 id="page-title">
+       Building a More Accessible Community
+      </h1>
+
+      <p>At UCLA, accessibility is essential to creating a community where everyone feels welcome, respected, and empowered to participate fully.</p>
+
+<p>Guided by our True Bruin Value of Belonging, we strive to build an inclusive environment that recognizes and respects the diverse identities, experiences, and abilities of our campus community. Accessibility goes beyond removing barriers and meeting legal requirements. It is about creating meaningful opportunities for everyone to learn, work, connect, and thrive.</p>
+
+<p>Through our shared commitment to accessibility, we help build a UCLA where everyone has the opportunity to participate, contribute, and belong.</p>
+
+     
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       MAIN
+       ======================================================= -->
+
+  <main id="main-content">
+
+
+    <!-- =====================================================
+         PRIMARY RESOURCE CARDS
+         ===================================================== -->
+
+    <section aria-labelledby="requirements-heading">
+
+      <div class="section-heading">
+        <h2 id="requirements-heading">Understanding Accessibility Requirements</h2>
+        <p>Accessibility laws, university policies, and technical standards help create equitable access to UCLA's programs, services, and digital experiences. Explore what each means, who it applies to, and why it matters.</p>
+      </div>
+
+      <!-- Two main tabs; each contains three native HTML accordions. -->
+      <div class="requirements-tabs">
+        <div class="requirements-tablist" role="tablist" aria-label="Browse accessibility requirements">
+          <button type="button" class="requirements-tab" id="tab-audience" role="tab" aria-selected="true" aria-controls="panel-audience" tabindex="0">By Audience</button>
+          <button type="button" class="requirements-tab" id="tab-requirement" role="tab" aria-selected="false" aria-controls="panel-requirement" tabindex="-1">By Requirement</button>
+        </div>
+
+        <div class="requirements-panel" id="panel-audience" role="tabpanel" aria-labelledby="tab-audience" tabindex="0">
+          <details class="requirements-accordion">
+            <summary>Students</summary>
+            <div class="requirements-accordion-content">
+              <p>Explore accessibility rights, accommodations, and resources that support participation in courses, campus programs, and university life.</p>
+            </div>
+          </details>
+          <details class="requirements-accordion">
+            <summary>Staff</summary>
+            <div class="requirements-accordion-content">
+              <p>Learn about accessibility responsibilities and support for university workplaces, services, communications, and digital content.</p>
+            </div>
+          </details>
+          <details class="requirements-accordion">
+            <summary>Campus Visitors</summary>
+            <div class="requirements-accordion-content">
+              <p>Find information about access to campus spaces, events, programs, and services when visiting UCLA.</p>
+            </div>
+          </details>
+        </div>
+        <div class="requirements-panel" id="panel-requirement" role="tabpanel" aria-labelledby="tab-requirement" tabindex="0" hidden>
+          <details class="requirements-accordion">
+            <summary>Laws &amp; Regulations</summary>
+            <div class="requirements-accordion-content">
+              <p>Federal and state requirements, including the ADA and Section 504, establish rights and obligations related to equal access and nondiscrimination.</p>
+            </div>
+          </details>
+          <details class="requirements-accordion">
+            <summary>UC Policies</summary>
+            <div class="requirements-accordion-content">
+              <p>University of California policies describe institutional expectations, responsibilities, and procedures. Check each policy for its scope and applicability.</p>
+            </div>
+          </details>
+          <details class="requirements-accordion">
+            <summary>Standards</summary>
+            <div class="requirements-accordion-content">
+              <p>Technical criteria, such as the Web Content Accessibility Guidelines (WCAG), help teams design and evaluate accessible experiences. Applicable requirements determine which standards are mandatory.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="section-heading">
+        <h2 id="resources-heading">Accessibility Resources</h2>
+        <p>Explore guidance, tools, training, and support for creating accessible experiences at UCLA.</p>
+      </div>
+
+      <div class="card-grid">
+
+        <!-- CARD 1 -->
+        <a
+          class="resource-card is-dark"
+          href="accessible-course-materials1004.html"
+        >
+          <h3>
+           Training
+          </h3>
+
+          <p>
+             Workshops, learning opportunities, tutorials,
+            and practical accessibility instruction.
+          </p>
+        </a>
+      
+        <!-- CARD 2 -->
+        <a
+          class="resource-card is-dark"
+          href="tools.html"
+        >
+          <h3>
+            Tools
+          </h3>
+
+          <p>
+            Testing tools and other resources for finding
+            and addressing accessibility barriers.
+          </p>
+        </a> 
+
+        <!-- CARD 3 -->
+        <a
+          class="resource-card is-dark"
+          href="support.html" >
+          <h3>
+            Help & Support
+          </h3>
+
+          <p>
+            Get assistance, consultation, accessibility
+            support, and information about reporting barriers.
+          </p>
+        </a>
+
+
+      </div>
+
+    </section>
+<br>
+<br>
+
+    <!-- =====================================================
+         FEATURED CONTENT
+         ===================================================== -->
+
+    <section aria-labelledby="featured-heading">
+
+      <div class="section-heading">
+
+        <h2 id="featured-heading">
+          Featured resources
+        </h2>
+
+      </div>
+
+
+      <div class="feature-grid">
+
+
+        <a
+          class="feature-card blue"
+          href="keyboard-accessibility.html"
+        >
+
+          <h3>
+            Keyboard accessibility
+          </h3>
+
+          <p>
+            Make sure people can navigate and operate
+            interactive content without relying on a mouse.
+          </p>
+
+          <span class="card-arrow" aria-hidden="true">
+            Learn about keyboard access →
+          </span>
+
+        </a>
+
+
+        <a
+          class="feature-card gold"
+          href="color-contrast.html"
+        >
+
+          <h3>
+            Color & contrast
+          </h3>
+
+          <p>
+            Build visual interfaces that preserve
+            readability and support accessible interaction.
+          </p>
+
+          <span class="card-arrow" aria-hidden="true">
+            Learn about contrast →
+          </span>
+
+        </a>
+
+      </div>
+
+    </section>
+<br>
+<br>
+
+    <!-- =====================================================
+         QUICK LINKS
+         ===================================================== -->
+
+    <section aria-labelledby="quick-heading">
+
+      <div class="section-heading">
+
+        <h2 id="quick-heading">
+          Quick links
+        </h2>
+
+      </div>
+
+
+      <div class="quick-links">
+
+        <a
+          class="quick-link"
+          href="checklist.html"
+        >
+          Accessibility checklist →
+        </a>
+
+        <a
+          class="quick-link"
+          href="request-support.html"
+        >
+          Request support →
+        </a>
+
+        <a
+          class="quick-link"
+          href="report-barrier.html"
+        >
+          Report an accessibility barrier →
+        </a>
+
+        <a
+          class="quick-link"
+          href="contact.html"
+        >
+          Contact accessibility staff →
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <p>
+        © UCLA — Digital Accessibility
+      </p>
+
+      <a
+        class="footer-link"
+        href="accessibility.html"
+      >
+        Accessibility statement
+      </a>
+
+    </div>
+
+  </footer>
+
+<script src="search.js" defer></script>
+  <script>
+    // Accessible keyboard navigation for the two main tabs.
+    document.querySelectorAll('.requirements-tablist').forEach(tablist => {
+      const tabs = Array.from(tablist.querySelectorAll(':scope > [role="tab"]'));
+      function activate(tab, moveFocus = false) {
+        tabs.forEach(item => {
+          const selected = item === tab;
+          item.setAttribute('aria-selected', String(selected));
+          item.tabIndex = selected ? 0 : -1;
+          document.getElementById(item.getAttribute('aria-controls')).hidden = !selected;
+        });
+        if (moveFocus) tab.focus();
+      }
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => activate(tab));
+        tab.addEventListener('keydown', event => {
+          let next;
+          if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+          else if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+          else if (event.key === 'Home') next = 0;
+          else if (event.key === 'End') next = tabs.length - 1;
+          else return;
+          event.preventDefault();
+          activate(tabs[next], true);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
