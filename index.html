@@ -29,6 +29,26 @@
     .requirements-panel p { line-height: 1.65; max-width: 72ch; margin: 0 0 .8rem; }
     .requirements-panel h3 { color: #005587; margin: 0 0 .65rem; font-size: 1.2rem; }
     @media (max-width: 600px) { .requirements-tab { padding: 10px 12px; font-size: .9rem; } .requirements-tab[aria-selected="true"] { padding-top: 7px; } .requirements-tabs > .requirements-panel { padding: 14px; } }
+
+    /* Click-to-expand accessibility resource cards. */
+    .resource-expand-grid { align-items: start; }
+    .resource-expand-card { background: #153d5c; color: #fff; border-top: 5px solid #ffd100; border-radius: 10px; overflow: hidden; min-width: 0; }
+    .resource-expand-card > summary { display: block; list-style: none; cursor: pointer; padding: 26px 28px; position: relative; min-height: 155px; box-sizing: border-box; }
+    .resource-expand-card > summary::-webkit-details-marker { display: none; }
+    .resource-expand-card > summary h3 { color: #fff; margin: 0 28px 14px 0; }
+    .resource-expand-card > summary p { color: #fff; margin: 0; line-height: 1.6; }
+    .resource-expand-card > summary::after { content: '+'; position: absolute; top: 19px; right: 23px; font-size: 1.8rem; color: #ffd100; font-weight: 700; }
+    .resource-expand-card[open] > summary::after { content: '\2212'; }
+    .resource-expand-card > summary:hover { background: #1d5075; }
+    .resource-expand-card > summary:focus-visible { outline: 3px solid #ffd100; outline-offset: -5px; }
+    .resource-expand-links { border-top: 1px solid rgba(255,255,255,.45); padding: 12px 20px 22px; }
+    .resource-expand-links ul { list-style: none; padding: 0; margin: 0; }
+    .resource-expand-links a { display: block; color: #fff; text-decoration: underline; text-underline-offset: 3px; padding: 11px 10px; border-radius: 4px; font-weight: 600; }
+    .resource-expand-links a::before { content: '\203A'; color: #ffd100; font-size: 1.3rem; margin-right: 9px; }
+    .resource-expand-links a:hover, .resource-expand-links a:focus-visible { background: #fff; color: #153d5c; }
+    .resource-expand-links a:hover::before, .resource-expand-links a:focus-visible::before { color: #153d5c; }
+    .resource-expand-links a:focus-visible { outline: 3px solid #ffd100; outline-offset: 2px; }
+    @media (max-width: 650px) { .resource-expand-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -158,53 +178,46 @@
         <p>Explore guidance, tools, training, and support for creating accessible experiences at UCLA.</p>
       </div>
 
-      <div class="card-grid">
-
-        <!-- CARD 1 -->
-        <a
-          class="resource-card is-dark"
-          href="accessible-course-materials1004.html"
-        >
-          <h3>
-           Training
-          </h3>
-
-          <p>
-             Workshops, learning opportunities, tutorials,
-            and practical accessibility instruction.
-          </p>
-        </a>
-      
-        <!-- CARD 2 -->
-        <a
-          class="resource-card is-dark"
-          href="tools.html"
-        >
-          <h3>
-            Tools
-          </h3>
-
-          <p>
-            Testing tools and other resources for finding
-            and addressing accessibility barriers.
-          </p>
-        </a> 
-
-        <!-- CARD 3 -->
-        <a
-          class="resource-card is-dark"
-          href="support.html" >
-          <h3>
-            Help & Support
-          </h3>
-
-          <p>
-            Get assistance, consultation, accessibility
-            support, and information about reporting barriers.
-          </p>
-        </a>
-
-
+      <div class="card-grid resource-expand-grid">
+        <details class="resource-expand-card">
+          <summary>
+            <h3>Training</h3>
+            <p>Workshops, learning opportunities, tutorials, and practical accessibility instruction.</p>
+          </summary>
+          <nav class="resource-expand-links" aria-label="Training links">
+            <ul>
+              <li><a href="training-students.html">Training for Students</a></li>
+              <li><a href="training-instructors.html">Training for Instructors</a></li>
+              <li><a href="training-developers.html">Training for Developers</a></li>
+            </ul>
+          </nav>
+        </details>
+        <details class="resource-expand-card">
+          <summary>
+            <h3>Tools</h3>
+            <p>Testing tools and other resources for finding and addressing accessibility barriers.</p>
+          </summary>
+          <nav class="resource-expand-links" aria-label="Tools links">
+            <ul>
+              <li><a href="accessibility-testing.html">Accessibility Testing Tools</a></li>
+              <li><a href="document-accessibility.html">Document Accessibility</a></li>
+              <li><a href="web-accessibility.html">Web Accessibility Tools</a></li>
+            </ul>
+          </nav>
+        </details>
+        <details class="resource-expand-card">
+          <summary>
+            <h3>Help &amp; Support</h3>
+            <p>Get assistance, consultation, accessibility support, and information about reporting barriers.</p>
+          </summary>
+          <nav class="resource-expand-links" aria-label="Help & Support links">
+            <ul>
+              <li><a href="consultation.html">Request a Consultation</a></li>
+              <li><a href="report-barrier.html">Report an Accessibility Barrier</a></li>
+              <li><a href="contact.html">Contact Accessibility Support</a></li>
+            </ul>
+          </nav>
+        </details>
       </div>
 
     </section>
@@ -329,6 +342,7 @@
 <section aria-label="Report an accessibility barrier">
 
   <div class="report-barrier">
+    <p>If you experience a digital accessibility barrier, we encourage you to first contact the creator or owner of the content to request assistance or an accessible alternative. They may be able to resolve the issue or provide the information in a format that meets your needs. If you are unable to obtain assistance or the barrier remains unresolved, please use the button below to report the accessibility barrier.</p>
 
     <a class="report-barrier-button"
        href="report-barrier.html">
